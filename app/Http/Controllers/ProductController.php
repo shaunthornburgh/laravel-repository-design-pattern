@@ -26,25 +26,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        $productData = request()->only([
-            'name',
-            'description',
-            'is_available'
-        ]);
-
-        return response()->json(
-            [
-                'data' => $this->productRepository->createProduct($productData)
-            ],
-            Response::HTTP_CREATED
-        );
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreProductRequest $request): JsonResponse
